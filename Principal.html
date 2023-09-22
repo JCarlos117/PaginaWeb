@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMO CONFIGURAR TU PAGINA WEB CON SERVIDOR APACHE</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: brown;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            background-color:rgba(128, 128, 128, 0.495) ;
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CONFIGURA TU PAGINA WEB CON APACHE</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Primera configuracion </h1>
+        <p>el primer paso es crear un nuevo proyecto. se puede hacer desde la página principal de Google Cloud.
+           posteriormete se deben definir los componentes del vps como lo son el procecador, ram, espacion de 
+           almacenamiento entre otros parametros. es importante que para que la vps funcione correctamente se 
+           habilite el tráfico HTTP y HTTPS marcando las casillas "Permitir HTTP" y "Permitir HTTPS" en la sección 
+           "Firewall".
+           <br>
+           <img src="Captura de pantalla 2023-09-22 002258.png" alt ="" width="550" height="250">
+           <img src="Captura de pantalla 2023-09-22 002339.png" alt ="" width="550" height="250">
+        </p>
+        <h1>Abrir y configurar en la terminal</h1>
+        <p>En la consola de Google Cloud, ve a la página Instancias de VM despues Para conectarte a la VM de Linux 
+           que acabas de crear, haz clic en SSH en la fila de la VM. Para actualizar los paquetes disponibles y, luego,
+           instalar el paquete apache2, usa el administrador de paquetes del sistema de ese sistema operativo. Si
+           seguiste la guía de inicio rápido, se creará una VM de Ubuntu. Para actualizar una VM de Ubuntu, ejecuta 
+           el siguiente comando: <br>
+           <strong>sudo apt update && sudo apt -y install apache2</strong>
+           <h1>Configurar git en el servidor</h1>
+           una vez instalado apache se puede crear una pagina web desde un proyecto git hub clonandolo en el servidor 
+           con los siguientes comandos: 
+           <strong>sudo apt update</strong> y posteriormente <strong>sudo apt install git</strong>
+           luego se debe configurar el nombre de usuario y direccion de correo electronico con los siguientes comandos: <br>
+           <strong>git config --global user.name "Tu Nombre"<br>
+            git config --global user.email "tu@email.com"</strong>
+        </strong>
+        </p>
+        <h1>Clonar el repositorio</h1>
+        <p>En este punto es necesario haber configurado correctamente el repositorio que contiene tu pagina web se debe 
+           asegurar que contenga los archivos HTML y recursos necesarios para que tu sitio web funcione. Luego, en tu 
+           servidor, puedes clonar el repositorio en la ubicación de tu servidor web (por ejemplo, /var/www/html) 
+           utilizando el siguiente comando: <br> <strong>
+            sudo git clone https://github.com/tuusuario/turepositorio.git /var/www/html
+           </strong>
+           en el comando anterior se debe utilizar el usuario y el repositorio de github
+        </p>
+        <h1>Configuracion de permisos</h1>
+        <p>Es posible que sea necesario ajustar los permisos de los archivos y directorios clonados para que el servidor web
+          (Apache) pueda acceder a ellos. Puedes hacerlo con el siguiente comando: <br> <strong>
+            sudo chown -R www-data:www-data /var/www/html
+          </strong>
+        </p>
+        <h1>Acceder al sitio wweb</h1>
+        <p>una vez que se clono el repositorio y se concedieron los permisos necesarios se puede acceder al sitio web creado
+           con la ip del servidor.
+        </p>
+        <br>
+        <img src="Captura de pantalla 2023-09-22 011654.png" alt ="" width="550" height="50">
+    </div>
+</body>
+</html>
